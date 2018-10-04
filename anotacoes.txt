@@ -1,0 +1,22 @@
+                Conceitos
+
+G8 - SPA - Single page application é uma aplicação de página única. O gmail por exemplo é.
+Trecho de cógio que serve para acapturar todos os buttões e seus eventos
+document.querySelectorAll("button").forEach(function(){
+
+    this.addEventListener("click", function(){
+        console.log("Clicou!");
+    });
+});
+
+
+G9 - Função é um trecho de código que execuata alguma ação(alguma coisa) e sempre retorna algum valor. 
+Subrotina é um trecho de código que executa alguma ação porém sem retorno.
+
+código --- var tr = document.createElement("tr");
+tr.innerHTML
+
+Então a propréidade innerHTML recupera ou atribui um valor a um elemento HTML.
+A propriedade (``) template Stringe utiliza as crase para delimitar texto. Dentro dessas crases,
+posso usar ${} para dizer para o JS que nesse campo, é uma variável que irá conter valor
+
