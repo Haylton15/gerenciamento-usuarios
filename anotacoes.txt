@@ -20,3 +20,10 @@ Então a propréidade innerHTML recupera ou atribui um valor a um elemento HTML.
 A propriedade (``) template Stringe utiliza as crase para delimitar texto. Dentro dessas crases,
 posso usar ${} para dizer para o JS que nesse campo, é uma variável que irá conter valor
 
+G11 -(MVC) Model é o controle do armazenamento de dados. View é a interface do usuário. Controller
+ele que liga esses dois, controlando o que pode  e o que não pode acontecer(Regras de Objeto). É um conceito de organização
+das camadas da aplicação.
+O método getValues() serve para: 1 - primeiro ele captura todos os campos atraveés do formEL que contem
+o id do formulario. No momento que cada campo é capturado, é salvo em um variável JSON. 2 - Depois de salvar no JSON,
+cada campo vai para um objeto de instancia da classe User, então o getValues() vai retornar o objeto para o método,
+onSubmit().
