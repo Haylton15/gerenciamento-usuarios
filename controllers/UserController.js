@@ -19,11 +19,44 @@ class UserController {
             event.preventDefault(); //isso é para cancelar o comportamento padrão de disparar o evento que no caso seria atualizar a página, com isso, não irá recarregar
 
             let user = this.getValues(); //getValues() ele depois de executar ele devolve uam instancia desse usuário
-            this.addLine(user);
+        
+            //o getPhoto vai receber através do callback ()=> o conteudo do arquivo (content)
+            this.getPhoto((content)=>{
+                user.photo = content; 
+                //só depois de ter a foto, adiciono a linha
+                this.addLine(user);
+            });
+
+
 
 
         });
 
+    }
+
+    //método para manipular a foto
+    getPhoto(callback){
+        let fileReader = new FileReader();
+
+        //o filter vai pegar do array apenas o campo da photo
+        let elements = [...this.formEL.elements].filter(item=>{
+            if (item.name === "photo"){
+                return item;
+            } 
+        });
+
+        //foi filtrada uma coleção e dessa coleção, só um arquivo
+        let file = elements[0].files[0];      
+
+
+        //é necessário ter o onload pq é quando essa foto terminar de carregar. o ()=> é uma função de callback pq vai que demora e então a função é apenas executada depois de terminar
+        //ou seja o callback aqui é depois de carregar a imagem o onload, execute essa função ()=>
+        fileReader.onload = () =>{
+            //o result vai ter o conteúdo do arquivo enviado que vai vir como URL em base64 
+            callback(fileReader.result);
+        };
+
+        fileReader.readAsDataURL(file);
     }
 
     //método para pegar os valores do formulário, atrvés do id do formulario, retornando o usuário.
@@ -67,7 +100,7 @@ class UserController {
         //tableEL é o elemento de tabela que será alvo
         this.tableEL.innerHTML = `
         <tr>
-        <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
+        <td><img src="${dataUser.photo}" alt="User Image" class="img-circle img-sm"></td>
         <td>${dataUser.name}</td>
         <td>${dataUser.email}</td>
         <td>${dataUser.admin}</td>

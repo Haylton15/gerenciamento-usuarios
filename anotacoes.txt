@@ -27,3 +27,7 @@ O método getValues() serve para: 1 - primeiro ele captura todos os campos atrav
 o id do formulario. No momento que cada campo é capturado, é salvo em um variável JSON. 2 - Depois de salvar no JSON,
 cada campo vai para um objeto de instancia da classe User, então o getValues() vai retornar o objeto para o método,
 onSubmit().
+
+G13 - FileReader é uma API nativad o JS que é útil para manipular arquivos e pastas.
+CallBack é uma função anônima usada como retorno. è após a execução de uma rotina
+O base64 que codifica a imagem serve para codificação dos dados que é muito usado na internet, o browser consegue ler e reverter pra imagem original
